@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Events\UserCreatedEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
-use Illuminate\Hashing\BcryptHasher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Event;
 
 class RegisterController extends Controller
 {
@@ -19,10 +16,9 @@ class RegisterController extends Controller
         return view("auth.register");
     }
 
-    public function store(Request $request, UserCreatedEvent $userCreatedEvent)
+    public function store(Request $request)
     {
         // App::setLocale('fr');
-        // Event UserCreated
         try {
             $validated = $request->validate(
                 [
@@ -33,15 +29,13 @@ class RegisterController extends Controller
 
             );
 
-            $user = User::create([
-                "name" => $request->name,
-                "email" => $request->email,
-                "password" => bcrypt($request->password),
+            $user = $validated::create([
+                // "name" => $request->name,
+                // "email" => $request->email,
+                // "password" => $request->password,
             ]);
 
             // return response()->json([$validated, 201]);
-            Event::dispatch(new UserCreatedEvent());
-            Event::dispatch($userCreatedEvent); //émettre un évènement
             return response()->json(
                 [
                     "succes" => false,

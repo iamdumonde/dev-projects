@@ -23,7 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get("test/{id}", function(Request $request, $id){
-    return response()->json(["success" => true,
-    "path" => $$request->path()]);
+Route::get("test", function(){
+    return response("test");
  })->middleware(['encrypt']);

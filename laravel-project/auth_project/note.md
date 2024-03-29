@@ -1,0 +1,5 @@
+# php artisan make:request NomDesValidation
+# php artisan lang:publish
+# php artisan event:generate
+
+#deeging deeper
