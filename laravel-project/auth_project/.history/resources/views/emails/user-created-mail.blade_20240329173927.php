@@ -1,6 +1,6 @@
 <div>
     <!-- The whole future lies in uncertainty: live immediately. - Seneca -->
-    <!-- <p>Salut {{$user->nom}}</p> -->
+    <p>Salut {{$user->nom}}</p>
     <!-- <p>Nom {{$user->nom}}</p> -->
     <p>Bonjour !</p>
     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat earum culpa fuga aliquam, asperiores expedita, molestiae nesciunt neque nihil necessitatibus harum recusandae sapiente, debitis ullam consequuntur laboriosam rerum! Dolores, totam?</p>

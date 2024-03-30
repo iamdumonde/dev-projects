@@ -19,7 +19,7 @@ class RegisterController extends Controller
         return view("auth.register");
     }
 
-    public function store(Request $request)
+    public function store(Request $request, UserCreatedEvent $userCreatedEvent)
     {
         // App::setLocale('fr');
         // Event UserCreated
@@ -36,12 +36,12 @@ class RegisterController extends Controller
             $user = User::create([
                 "name" => $request->name,
                 "email" => $request->email,
-                "password" => $request->password,
+                "password" => bcrypt($request->password),
             ]);
 
             // return response()->json([$validated, 201]);
-            Event::dispatch(new UserCreatedEvent($user));
-            // Event::dispatch($userCreatedEvent); //émettre un évènement
+            // Event::dispatch(new UserCreatedEvent());
+            Event::dispatch($userCreatedEvent); //émettre un évènement
             return response()->json(
                 [
                     "succes" => false,

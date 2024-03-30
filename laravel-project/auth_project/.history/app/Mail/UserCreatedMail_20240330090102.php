@@ -19,7 +19,7 @@ class UserCreatedMail extends Mailable
      */
     public function __construct()
     {
-        // dd("bienvenue");
+        dd("bienvenue");
         //
     }
 

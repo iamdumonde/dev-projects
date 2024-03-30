@@ -24,7 +24,7 @@ class SendWelcomeEmailListener
      */
     public function handle(UserCreatedEvent $event): void
     {
-        // dd("bienvenue");
+        dd("bienvenue");
         //envoyer les mails
         // $message = new UserCreatedMail($event->user->email);
         // $message->to("martinaboumonde@gmail.com")->send();

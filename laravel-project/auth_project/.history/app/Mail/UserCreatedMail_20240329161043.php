@@ -17,9 +17,8 @@ class UserCreatedMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(public User $user)
     {
-        // dd("bienvenue");
         //
     }
 
